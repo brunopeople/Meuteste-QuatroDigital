@@ -1,0 +1,24 @@
+<html>
+<head>
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+</head>
+<body>
+
+<script>
+    //Usando jQuery
+    a = $.getJSON( "https://api.flickr.com/services/feeds/photos_public.gne?jsoncallback=?")
+  .done(function( json ) {
+    b = jQuery.parseJSON(a.responseText)
+    for ( var i = 0; i < b.responseData.results.length; i++ ) {
+
+        document.write("<img src='"+b.responseData.results[i].unescapedUrl+"' />");
+}
+  })
+  .fail(function( jqxhr, textStatus, error ) {
+    document.write("Erro ao capturar JSON");
+});
+
+</script>
+    </body> 
+
+</html> 
